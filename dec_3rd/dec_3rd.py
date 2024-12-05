@@ -40,11 +40,15 @@
 # Handle the new instructions; what do you get if you add up all of the results of just the enabled multiplications?
 
 
+"""
+running this file in python will print values for both parts of todays problem
+"""
+
 import re
 
 
 def get_muls(file_path):
-    """this function uses regex to find substrings for the right form and calls do_mul to 
+    """this function uses regex to find substrings for the right form and calls do_mul to
     return the relevant product, then returns the sum of those products"""
     with open(file_path) as file:
         return sum(
@@ -56,8 +60,8 @@ def get_muls(file_path):
 def get_do_dont_muls(file_path):
     """this version of get_muls needs to find the parts of the file that are after a 'do()'
     but not a 'don't()'. to do this it splits the string around 'do()' and then splits the
-    resulting strings around 'don't()', then takes the first element. then it runs the same 
-    regex as before and cals do_mul to process the relevant strings"""
+    resulting strings around 'don't()' and takes the first element. then it runs the same
+    regex as before and calls do_mul to process the relevant strings"""
     with open(file_path) as file:
         return sum(
             [
@@ -74,7 +78,7 @@ def get_do_dont_muls(file_path):
 
 
 def do_mul(mul_string):
-    """this functions takes a string of a specific form and processes it to 
+    """this functions takes a string of a specific form and processes it to
     get the appropriate product"""
     nums = [int(num_string) for num_string in mul_string[4:-1].split(",")]
     return nums[0] * nums[1]
