@@ -69,7 +69,7 @@ def get_safety_count(filepath, problem_damper):
     this function was re-written so it can solve both parts of todays problem
     it can take problem dampner as an argument, which is 0 in the first part of
     the problem and 1 in the second part
-    theoretically it can accept higher values for the problem damper, and thereby 
+    theoretically it can accept higher values for the problem damper, and thereby
     handle lines with more that one issue
     """
     # get data from file
@@ -85,7 +85,7 @@ def get_safety_count(filepath, problem_damper):
 def step_check(line, problem_damper):
     """
     this function looks at the changes between each element in a given line and returns true if they are
-    all gradually ascending or descending. if the problem damper is greater than 0, it can accept that 
+    all gradually ascending or descending. if the problem damper is greater than 0, it can accept that
     many problem values in the line, by calling itself recursively on each possible version of a problematic
     line with a reduced problem damper
     """
@@ -93,7 +93,10 @@ def step_check(line, problem_damper):
     if all(0 < step < 4 for step in steps) or all(-4 < step < 0 for step in steps):
         return True
     elif problem_damper > 0:
-        return any(step_check(line[:i] + line[i + 1 :], problem_damper-1) for i in range(len(line)))
+        return any(
+            step_check(line[:i] + line[i + 1 :], problem_damper - 1)
+            for i in range(len(line))
+        )
     else:
         return False
 
@@ -101,4 +104,3 @@ def step_check(line, problem_damper):
 if __name__ == "__main__":
     print(f"SAFETY COUNT NO DAMPER: {get_safety_count('dec_2nd/input_1.txt', 0)}")
     print(f"SAFETY COUNT WITH DAMPER: {get_safety_count('dec_2nd/input_1.txt', 1)}")
-

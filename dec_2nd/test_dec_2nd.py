@@ -38,17 +38,18 @@ class TestStepCheckWithNoDamper:
         expected_return_2 = False
         assert step_check(test_line_2, 0) == expected_return_2
 
+
 class TestStepCheckWithDamper:
     def test_step_check_accepts_lines_with_no_issues_while_damper_is_on(self):
-        test_line = [1,2,4]
+        test_line = [1, 2, 4]
         expected_return = True
         assert step_check(test_line, 1) == expected_return
-    
-    def test_step_check_accepts_asceinding_with_one_descending(self):
+
+    def test_step_check_accepts_ascending_with_one_descending(self):
         test_line = [1, 2, 1, 5]
         expected_return = True
         assert step_check(test_line, 1) == expected_return
-    
+
     def test_step_check_rejects_ascending_line_with_two_descending(self):
         test_line = [1, 2, 3, 2, 1, 4]
         expected_return = False
@@ -57,7 +58,7 @@ class TestStepCheckWithDamper:
     def test_step_check_rejects_ascending_line_with_one_naieve_descent(self):
         """this test would be failed by a function that naievely checks for diferences between elements
         if that function saw 6 -> 1 as the only point of issue"""
-        
+
         test_line = [5, 6, 1, 2, 3]
         expected_return = False
         assert step_check(test_line, 1) == expected_return
