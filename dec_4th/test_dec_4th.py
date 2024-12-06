@@ -1,4 +1,9 @@
-from dec_4th import get_descending_diagonals, get_ascending_diagonals, get_xmas_count
+from dec_4th import (
+    get_descending_diagonals,
+    get_ascending_diagonals,
+    get_xmas_count,
+    get_mas_cross_count,
+)
 
 
 class TestGetDiagonals:
@@ -28,3 +33,10 @@ class TestGetXmasCount:
         test_file_path = "dec_4th/test_input_1.txt"
         expect_return = 18
         assert get_xmas_count(test_file_path) == expect_return
+
+
+class TestGetMasCrossCount:
+    def test_func_returns_correct_value_for_test_input(self):
+        test_file_path = "dec_4th/test_input_1.txt"
+        expect_return = 9
+        assert get_mas_cross_count(test_file_path) == expect_return
