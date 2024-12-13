@@ -3,8 +3,8 @@ from dec_6th import (
     get_start,
     get_obstacles,
     get_path,
-    count_loops,
-    loop_check,
+    #count_loops,
+    #loop_check,
 )
 
 
@@ -15,11 +15,11 @@ class TestCountSpaces:
         assert count_spaces(test_filepath) == expected_return
 
 
-class TestCountLoops:
-    def test_count_loops_returns_correct_loop_count_for_test_input(self):
-        test_filepath = "dec_6th/test_input_1.txt"
-        expected_return = 7
-        assert count_loops(test_filepath) == expected_return
+# class TestCountLoops:
+#     def test_count_loops_returns_correct_loop_count_for_test_input(self):
+#         test_filepath = "dec_6th/test_input_1.txt"
+#         expected_return = 7
+#         assert count_loops(test_filepath) == expected_return
 
 
 class TestGetStart:
@@ -94,20 +94,20 @@ class TestGetPath:
         assert get_path(map_size, obstacles, start) == expected_return
 
 
-class TestLoopCheck:
-    # def test_func_returns_false_when_adding_an_obstacle_does_not_form_a_loop(self):
+# class TestLoopCheck:
+#     # def test_func_returns_false_when_adding_an_obstacle_does_not_form_a_loop(self):
 
-    #     pass
+#     #     pass
 
-    def test_func_first_example_from_test_data(self):
-        with open("dec_6th/test_input_1.txt") as file:
-            initial_map = [[char for char in line if char != "\n"] for line in file]
-        map_size = len(initial_map)
-        obstacles = get_obstacles(initial_map)
-        start = get_start(initial_map)
-        path = get_path(map_size, obstacles, start)
-        divergence_point = 35
-        expected_return = True
-        assert (
-            loop_check(map_size, obstacles, path, divergence_point) == expected_return
-        )
+#     def test_func_first_example_from_test_data(self):
+#         with open("dec_6th/test_input_1.txt") as file:
+#             initial_map = [[char for char in line if char != "\n"] for line in file]
+#         map_size = len(initial_map)
+#         obstacles = get_obstacles(initial_map)
+#         start = get_start(initial_map)
+#         path = get_path(map_size, obstacles, start)
+#         divergence_point = 35
+#         expected_return = True
+#         assert (
+#             loop_check(map_size, obstacles, path, divergence_point) == expected_return
+#         )

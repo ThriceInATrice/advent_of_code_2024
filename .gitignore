@@ -1,1 +1,6 @@
 venv
+*__pycache__
+*.pytest_cache
+dec_6th/__pycache__
+dec_6th.cpython-311.pyc
+test_dec_6th.cpython-311-pytest-8.3.4.pyc
