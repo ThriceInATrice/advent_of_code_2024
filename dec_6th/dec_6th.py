@@ -264,8 +264,6 @@ def count_spaces(filepath):
     return len(spaces)
 
 
-
-
 def get_path(map_size, obstacles, path):
     """this function takes information about the map and recursively traces the path until it either
     leaves the map"""
@@ -325,6 +323,7 @@ def get_start(initial_map):
         for column in range(len(initial_map[row]))
         if initial_map[row][column] in ["^", "v", ">", "<"]
     ]
+
 
 """this was my first approach at part 2 but it takes way to long. given that my first solution
 was about 4.4k unique spaces, I imagine that it is running around that many version of get_path,
@@ -408,4 +407,3 @@ which means perhaps 2e+7 steps to follow"""
 
 if __name__ == "__main__":
     print(f"SPACES TRAVELLED: {count_spaces('dec_6th/input_1.txt')}")
-
