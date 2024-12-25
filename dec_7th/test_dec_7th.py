@@ -1,47 +1,127 @@
-from dec_7th import sum_possible_calibrations, calibration_check
+from dec_7th import (
+    get_calibration_sum,
+    calibration_check,
+)
 
-
-class TestSumPossibleCalibrations:
-    def test_func_returns_correct_value_for_test_data(self):
+class TestGetCalibrationSum:
+    def test_func_on_exaxmple_data_using_only_mult_and_add(self):
         test_filepath = "dec_7th/test_input_1.txt"
+        test_operations = ["mult", "add"]
         expected_return = 3749
-        assert sum_possible_calibrations(test_filepath) == expected_return
+        assert get_calibration_sum(test_filepath, test_operations) == expected_return
+
+    def test_func_on_exaxmple_data_using_mult_add_and_concat(self):
+        test_filepath = "dec_7th/test_input_1.txt"
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 11387
+        assert get_calibration_sum(test_filepath, test_operations) == expected_return
 
 
-class TestCalibrationCheck:
-    def test_func_returns_correct_value_for_simple_true_case(self):
-        test_input = [4, [2, 2]]
-        expected_return = 4
-        assert calibration_check(test_input) == expected_return
+class TestCalibrationCheck2:
+    def test_func_on_test_line_1_with_mult_and_add(self):
+        test_input = [190, [10, 19]]
+        test_operations = ["mult", "add"]
+        expected_return = 190
+        assert calibration_check(test_input, test_operations) == expected_return
 
-    def test_func_returns_false_correctly_for_simple_case(self):
-        test_input = [10, [2, 2]]
+    def test_func_on_test_line_2_with_mult_and_add(self):
+        test_input = [3267, [81, 40, 27]]
+        test_operations = ["mult", "add"]
+        expected_return = 3267
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_3_with_mult_and_add(self):
+        test_input = [83, [17, 5]]
+        test_operations = ["mult", "add"]
         expected_return = False
-        assert calibration_check(test_input) == expected_return
+        assert calibration_check(test_input, test_operations) == expected_return
 
-    def test_func_returns_correct_value_for_complex_true_case(self):
-        test_input = [204, [5, 10, 1, 4]]
-        expected_return = 204
-        assert calibration_check(test_input) == expected_return
-
-    def test_func_returns_correct_value_for_complex_false_case(self):
-        test_input = [19, [2, 3, 10]]
+    def test_func_on_test_line_4_with_mult_and_add(self):
+        test_input = [156, [15, 6]]
+        test_operations = ["mult", "add"]
         expected_return = False
-        assert calibration_check(test_input) == expected_return
+        assert calibration_check(test_input, test_operations) == expected_return
 
-    def test_func_can_alternate_between_operators(self):
-        test_input = [25, [1, 2, 3, 4, 5]]
-        expected_return = 25
-        assert calibration_check(test_input) == expected_return
+    def test_func_on_test_line_5_with_mult_and_add(self):
+        test_input = [7290, [6, 8, 6, 15]]
+        test_operations = ["mult", "add"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
 
-        test_input = [65, [1, 2, 3, 4, 5]]
-        expected_return = 65
-        assert calibration_check(test_input) == expected_return
+    def test_func_on_test_line_6_with_mult_and_add(self):
+        test_input = [161011, [16, 10, 13]]
+        test_operations = ["mult", "add"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
 
-    def test_func_can_handle_long_input(self):
-        test_input = [
-            1048576,
-            [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-        ]
-        expected_return = 1048576
-        assert calibration_check(test_input) == expected_return
+    def test_func_on_test_line_7_with_mult_and_add(self):
+        test_input = [192, [17, 8, 14]]
+        test_operations = ["mult", "add"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_8_with_mult_and_add(self):
+        test_input = [21037, [9, 7, 18, 13]]
+        test_operations = ["mult", "add"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_9_with_mult_and_add(self):
+        test_input = [292, [11, 6, 16, 20]]
+        test_operations = ["mult", "add"]
+        expected_return = 292
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_1_with_mult_add_and_concat(self):
+        test_input = [190, [10, 19]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 190
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_2_with_mult_add_and_concat(self):
+        test_input = [3267, [81, 40, 27]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 3267
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_3_with_mult_add_and_concat(self):
+        test_input = [83, [17, 5]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_4_with_mult_add_and_concat(self):
+        test_input = [156, [15, 6]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 156
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_5_with_mult_add_and_concat(self):
+        test_input = [7290, [6, 8, 6, 15]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 7290
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_6_with_mult_add_and_concat(self):
+        test_input = [161011, [16, 10, 13]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_7_with_mult_add_and_concat(self):
+        test_input = [192, [17, 8, 14]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 192
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_8_with_mult_add_and_concat(self):
+        test_input = [21037, [9, 7, 18, 13]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = False
+        assert calibration_check(test_input, test_operations) == expected_return
+
+    def test_func_on_test_line_9_with_mult_add_and_concat(self):
+        test_input = [292, [11, 6, 16, 20]]
+        test_operations = ["mult", "add", "concat"]
+        expected_return = 292
+        assert calibration_check(test_input, test_operations) == expected_return
