@@ -3,6 +3,7 @@ from dec_7th import (
     calibration_check,
 )
 
+
 class TestGetCalibrationSum:
     def test_func_on_exaxmple_data_using_only_mult_and_add(self):
         test_filepath = "dec_7th/test_input_1.txt"

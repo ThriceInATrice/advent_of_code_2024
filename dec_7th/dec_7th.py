@@ -34,12 +34,10 @@ def calibration_check(calibration, operations):
         if "concat" in operations:
             concat = int(str(nums[0]) + str(nums[1]))
             if concat <= target:
-                next_step = calibration_check(
-                    [target, [concat] + nums[2:]], operations
-                )
+                next_step = calibration_check([target, [concat] + nums[2:]], operations)
                 if next_step:
                     return next_step
-    
+
     return target if nums[0] == target else False
 
 
