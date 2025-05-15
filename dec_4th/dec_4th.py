@@ -89,7 +89,7 @@ running this file in python will print values for both parts of todays problem
 """
 
 from pprint import pprint
-import re
+import regex as re
 
 
 def get_xmas_count(filepath):
@@ -115,19 +115,9 @@ def get_xmas_count(filepath):
         "".join(diagonal) for diagonal in get_ascending_diagonals(char_matrix)
     ]
 
-    return sum(
-        [
-            sum([len(re.findall("XMAS", line)) for line in horizontal_lines]),
-            sum([len(re.findall("SAMX", line)) for line in horizontal_lines]),
-            sum([len(re.findall("XMAS", line)) for line in vertical_lines]),
-            sum([len(re.findall("SAMX", line)) for line in vertical_lines]),
-            sum([len(re.findall("XMAS", line)) for line in descending_diagonals]),
-            sum([len(re.findall("SAMX", line)) for line in descending_diagonals]),
-            sum([len(re.findall("XMAS", line)) for line in ascending_diagonals]),
-            sum([len(re.findall("SAMX", line)) for line in ascending_diagonals]),
-        ]
-    )
-
+    lines = horizontal_lines + vertical_lines + ascending_diagonals + descending_diagonals
+    
+    return sum([len(re.findall("(XMAS)|(SAMX)", line, overlapped=True)) for line in lines])
 
 def get_descending_diagonals(char_matrix):
     """this function returns a list of the characters along each diagonal line in the

@@ -147,20 +147,24 @@ def get_correct_update_count(filepath):
     rules = [rule.split("|") for rule in rule_data.split("\n")]
     updates = [update.split(",") for update in update_data.split("\n")]
 
+    check_update = lambda update, rules: all(
+        [rule_test(update, rule) for rule in rules]
+    ) * int(update[floor(len(update) / 2)])
+
     return sum(check_update(update, rules) for update in updates if update != [""])
 
 
-def check_update(update, rules):
-    """
-    this function compares a single update to all rules by calling rule_test()
-    it returns 0 if any rule test fails, otherwise it returns the middle value of the update
-    to do this it returns the middle value multiplied by all() on a list comprehension of the
-    rules tests. if any fail then the all() is false and is treated as 0 by the multiplication
-    """
+# def check_update(update, rules):
+#     """
+#     this function compares a single update to all rules by calling rule_test()
+#     it returns 0 if any rule test fails, otherwise it returns the middle value of the update
+#     to do this it returns the middle value multiplied by all() on a list comprehension of the
+#     rules tests. if any fail then the all() is false and is treated as 0 by the multiplication
+#     """
 
-    return all([rule_test(update, rule) for rule in rules]) * int(
-        update[floor(len(update) / 2)]
-    )
+#     return all([rule_test(update, rule) for rule in rules]) * int(
+#         update[floor(len(update) / 2)]
+#     )
 
 
 def rule_test(update, rule):

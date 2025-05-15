@@ -1,6 +1,6 @@
 from dec_5th import (
     get_correct_update_count,
-    check_update,
+    # check_update,
     rule_test,
     reorder_incorrect_updates,
     reorder_update,
@@ -21,38 +21,38 @@ class TestReorderIncorrectpdates:
         assert reorder_incorrect_updates(filepath) == expected_return
 
 
-class TestCheckUpdates:
-    def test_check_updates_accepts_update_that_passes_one_rule(self):
-        update = [1, 2, 3]
-        rules = [[1, 2]]
-        expected_return = 2
-        assert check_update(update, rules) == expected_return
+# class TestCheckUpdates:
+#     def test_check_updates_accepts_update_that_passes_one_rule(self):
+#         update = [1, 2, 3]
+#         rules = [[1, 2]]
+#         expected_return = 2
+#         assert check_update(update, rules) == expected_return
 
-    def test_check_updates_passes_an_update_that_doesnt_interact_with_the_rule(self):
-        update = [1, 2, 3]
-        rules = [[4, 5]]
-        expected_return = 2
-        assert check_update(update, rules) == expected_return
+#     def test_check_updates_passes_an_update_that_doesnt_interact_with_the_rule(self):
+#         update = [1, 2, 3]
+#         rules = [[4, 5]]
+#         expected_return = 2
+#         assert check_update(update, rules) == expected_return
 
-    def test_check_updates_returns_0_when_update_fails_a_rule(self):
-        update = [1, 2, 3]
-        rules = [[2, 1]]
-        expected_return = 0
-        assert check_update(update, rules) == expected_return
+#     def test_check_updates_returns_0_when_update_fails_a_rule(self):
+#         update = [1, 2, 3]
+#         rules = [[2, 1]]
+#         expected_return = 0
+#         assert check_update(update, rules) == expected_return
 
-    def test_check_updates_returns_correct_value_when_update_passes_multiple_tests(
-        self,
-    ):
-        update = [1, 2, 3]
-        rules = [[1, 2], [2, 3]]
-        expected_return = 2
-        assert check_update(update, rules) == expected_return
+#     def test_check_updates_returns_correct_value_when_update_passes_multiple_tests(
+#         self,
+#     ):
+#         update = [1, 2, 3]
+#         rules = [[1, 2], [2, 3]]
+#         expected_return = 2
+#         assert check_update(update, rules) == expected_return
 
-    def test_check_updates_returns_0_when_update_fails_one_rule_of_several(self):
-        update = [1, 2, 3]
-        rules = [[1, 2], [3, 2]]
-        expected_return = 0
-        assert check_update(update, rules) == expected_return
+#     def test_check_updates_returns_0_when_update_fails_one_rule_of_several(self):
+#         update = [1, 2, 3]
+#         rules = [[1, 2], [3, 2]]
+#         expected_return = 0
+#         assert check_update(update, rules) == expected_return
 
 
 class TestRuleTest:

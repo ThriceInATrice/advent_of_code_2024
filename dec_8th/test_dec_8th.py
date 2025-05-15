@@ -1,4 +1,10 @@
-from dec_8th import get_antinode_count, get_antenas, get_antena_pairs, get_antinodes, get_harmonic_antinode_count
+from dec_8th import (
+    get_antinode_count,
+    get_antenas,
+    get_antena_pairs,
+    get_antinodes,
+    get_harmonic_antinode_count,
+)
 
 
 class TestGetAntinodeCount:

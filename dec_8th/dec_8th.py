@@ -70,7 +70,7 @@ def get_harmonic_antinode_count(filepath):
 
     antena_pairs = get_antena_pairs(antena_list)
     # print(f"antena pairs: {antena_pairs}")
-    
+
     harmonic_antinodes = get_harmonic_antinodes(antena_pairs, len(line_data))
     # print(f"harmonic antinodes: {harmonic_antinodes}")
 
@@ -79,17 +79,20 @@ def get_harmonic_antinode_count(filepath):
 
 def get_harmonic_antinodes(antena_pairs, grid_size):
     antinodes = []
-    
+
     for pair in antena_pairs:
         antinodes += [pair[0], pair[1]]
         within_grid = True
         while within_grid:
-            new_node = (2* antinodes[-1][0] - antinodes[-2][0], 2* antinodes[-1][1] - antinodes[-2][1])
+            new_node = (
+                2 * antinodes[-1][0] - antinodes[-2][0],
+                2 * antinodes[-1][1] - antinodes[-2][1],
+            )
             if 0 <= new_node[0] < grid_size and 0 <= new_node[1] < grid_size:
                 antinodes.append(new_node)
             else:
                 within_grid = False
-            
+
     return set(antinodes)
 
 
